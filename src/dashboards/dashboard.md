@@ -27,7 +27,7 @@ myorg-myplugin-datasource/
      └── plugin.json
 ```
 
-2. Update `plugin.json` to include dashboard:
+2; Update `plugin.json` to include dashboard:
 
 ```json
 {
@@ -43,7 +43,7 @@ myorg-myplugin-datasource/
 
 > **Important**: Use paths relative to `src` directory.
 
-3. Rebuild plugin and restart Grafana.
+3; Rebuild plugin and restart Grafana.
 
 ## Step 3: Import dashboard
 
