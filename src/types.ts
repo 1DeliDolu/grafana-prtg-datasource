@@ -67,6 +67,9 @@ export interface PRTGQuery extends DataQuery {
   queryType: 'metrics' | 'raw' | 'text';
   queryText?: string;
   rawQuery?: string;
+  group?: string;
+  device?: string;
+  sensor?: string;
   groupSelection: { name: string };
   deviceSelection: { name: string };
   sensorSelection: { name: string };
