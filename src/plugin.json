@@ -5,16 +5,24 @@
   "id": "prtg-prtg-datasource",
   "metrics": true,
   "info": {
-    "description": "",
+    "description": "Grafana datasource for PRTG",
     "author": {
-      "name": "Prtg"
+      "name": "Mustafa Özdemir",
+      "email": "mustafa.ozdemir1408@gmail.com"
     },
-    "keywords": ["datasource"],
+    "keywords": [
+      "datasource, prtg, grafana"
+    ],
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
-    "links": [],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/1DeliDolu/grafana-prtg-datasource.git"
+      }
+    ],
     "screenshots": [],
     "version": "%VERSION%",
     "updated": "%TODAY%"

@@ -18,4 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: grafana/plugin-actions/bundle-size@main
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build plugin
+        run: npm run build
+
+      - name: Compare bundle sizes
+        uses: grafana/plugin-actions/bundle-size@main

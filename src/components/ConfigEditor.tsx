@@ -1,69 +1,96 @@
 import React, { ChangeEvent } from 'react';
-import { InlineField, Input, SecretInput } from '@grafana/ui';
+import { InlineField, Input } from '@grafana/ui';
 import { DataSourcePluginOptionsEditorProps } from '@grafana/data';
-import { MyDataSourceOptions, MySecureJsonData } from '../types';
+import { PRTGDataSourceConfig, PRTGSecureJsonData } from '../types';
 
-interface Props extends DataSourcePluginOptionsEditorProps<MyDataSourceOptions, MySecureJsonData> {}
+interface Props extends DataSourcePluginOptionsEditorProps<PRTGDataSourceConfig, PRTGSecureJsonData> { }
 
 export function ConfigEditor(props: Props) {
   const { onOptionsChange, options } = props;
-  const { jsonData, secureJsonFields, secureJsonData } = options;
+  const { jsonData } = options;
 
-  const onPathChange = (event: ChangeEvent<HTMLInputElement>) => {
+
+  const onHostnameChange = (event: ChangeEvent<HTMLInputElement>) => {
     onOptionsChange({
       ...options,
       jsonData: {
         ...jsonData,
-        path: event.target.value,
+        hostname: event.target.value,
       },
     });
   };
 
-  // Secure field (only sent to the backend)
-  const onAPIKeyChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
     onOptionsChange({
       ...options,
-      secureJsonData: {
-        apiKey: event.target.value,
+      jsonData: {
+        ...jsonData,
+        username: event.target.value,
       },
     });
   };
 
-  const onResetAPIKey = () => {
+  const onPasshashChange = (event: ChangeEvent<HTMLInputElement>) => {
     onOptionsChange({
       ...options,
-      secureJsonFields: {
-        ...options.secureJsonFields,
-        apiKey: false,
+      jsonData: {
+        ...jsonData,
+        passhash: event.target.value,
       },
-      secureJsonData: {
-        ...options.secureJsonData,
-        apiKey: '',
+    });
+  };
+
+
+  const onCacheTimeoutChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(event.target.value, 10);
+    onOptionsChange({
+      ...options,
+      jsonData: {
+        ...jsonData,
+        cacheTimeout: value > 0 ? value : 300,
       },
     });
   };
 
   return (
     <>
-      <InlineField label="Path" labelWidth={14} interactive tooltip={'Json field returned to frontend'}>
+      <h1>API Configuration:</h1>
+      <InlineField label="Hostname" labelWidth={20} interactive tooltip={'Hostname for the API'}>
         <Input
-          id="config-editor-path"
-          onChange={onPathChange}
-          value={jsonData.path}
-          placeholder="Enter the path, e.g. /api/v1"
+          id="config-editor-hostname"
+          onChange={onHostnameChange}
+          value={jsonData.hostname}
+          placeholder="Enter the hostname, e.g. yourserver"
           width={40}
         />
       </InlineField>
-      <InlineField label="API Key" labelWidth={14} interactive tooltip={'Secure json field (backend only)'}>
-        <SecretInput
-          required
-          id="config-editor-api-key"
-          isConfigured={secureJsonFields.apiKey}
-          value={secureJsonData?.apiKey}
-          placeholder="Enter your API key"
+      <InlineField label="Username" labelWidth={20} interactive tooltip={'Username for the API'}>
+        <Input
+          id="config-editor-username"
+          onChange={onUsernameChange}
+          value={jsonData.username}
+          placeholder="Enter the username, e.g. myuser"
           width={40}
-          onReset={onResetAPIKey}
-          onChange={onAPIKeyChange}
+        />
+      </InlineField>
+      <InlineField label="Passhash" labelWidth={20} interactive tooltip={'Passhash for the API'}>
+        <Input
+          id="config-editor-passhash"
+          onChange={onPasshashChange}
+          value={jsonData.passhash}
+          placeholder="Enter your passhash"
+          type='password'
+          width={40}
+        />
+      </InlineField>
+      <InlineField label="Cache Timeout" labelWidth={20} interactive tooltip={'Cache timeout in seconds'}>
+        <Input
+          type="number"
+          id="config-editor-cache-timeout"
+          onChange={onCacheTimeoutChange}
+          value={jsonData.cacheTimeout || 300}
+          placeholder="Enter cache timeout in seconds"
+          width={40}
         />
       </InlineField>
     </>
