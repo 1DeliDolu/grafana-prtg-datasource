@@ -110,3 +110,21 @@ Below you can find source code for existing app plugins and other related docume
 - [Basic data source plugin example](https://github.com/grafana/grafana-plugin-examples/tree/master/examples/datasource-basic#readme)
 - [`plugin.json` documentation](https://grafana.com/developers/plugin-tools/reference/plugin-json)
 - [How to sign a plugin?](https://grafana.com/developers/plugin-tools/publish-a-plugin/sign-a-plugin)
+
+## Create a release tag
+
+A tag with the format vX.X.X is used to trigger the release workflow. Typically all of your changes will be merged into main, and the tag is applied to main
+
+- git checkout main
+- git pull origin main
+- git tag v2.0.1
+- git push origin v2.0.1
+
+### If you need to re-tag the release, the current tag can be removed with these commands:
+
+- git tag -d v2.0.1
+- git push --delete origin v2.0.1
+- git checkout main
+- git pull origin main
+
+After you push the tag, you can create the same tag again.

@@ -1,0 +1,38 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "private",
+  "signedByOrg": "dd1delidolu",
+  "signedByOrgName": "prtg",
+  "rootUrls": [
+    "https://delidolu.grafana.net/"
+  ],
+  "plugin": "prtg-prtg-datasource",
+  "version": "1.0.0",
+  "time": 1738488465236,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "CHANGELOG.md": "aaa78be4710ef41d56ddab1edbd180ef9f9adfea2f293109aae925dc33a1b9b3",
+    "dashboards/overview.json": "40a454c2114d655fe43065170359dca677c42c1c4cc476503c6bb6a869e5f334",
+    "img/logo.svg": "1defc6f7e585c67657bcfd8fddc599ee7dfa82f8674413f49fa274c2cd453ec6",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "module.js": "4a42eb35215920ab73c78d7f6ffb216726562c3f942385ec18298ee77bf783f3",
+    "module.js.map": "73912e129b71033e8b72f85f64b92e1b92bdf14e099d323a1ebc88b368a2efee",
+    "plugin.json": "77d83ba804a15f921de5b2cd10b9a4c527d70029e6f5bac641cc76742359dd56",
+    "README.md": "1aeae021eb597e00d769f769e44b698daf28de9b804339752dea28bae315280c"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.11
+Comment: https://openpgpjs.org
+
+wrkEARMKAAYFAmefOpEAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm57IdAgkB8g+38xL91c+6j05ZGunCnNObAJZqiTzOUoWl/w7GJnP+Eors
+6wVUO6UNTfiWYB82wjucIrQaYgg7klw2PLEPcjACCQCOJTD83v09izl1IkEx
+sGZBmfmdBGX8v/v1947HJuWgiarMFkCRHMO0rq+2D1EvEvnWlxhwoQhCuEr1
+8knjVSmEnA==
+=Smi2
+-----END PGP SIGNATURE-----
