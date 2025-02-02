@@ -1,0 +1,43 @@
+{
+    "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+    "type": "datasource",
+    "name": "Prtg",
+    "id": "prtg-prtg-datasource",
+    "metrics": true,
+    "annotations": true,
+    "info": {
+        "description": "Grafana datasource for PRTG",
+        "author": {
+            "name": "Mustafa Özdemir",
+            "email": "mustafa.ozdemir1408@gmail.com"
+        },
+        "keywords": [
+            "datasource, prtg, grafana"
+        ],
+        "logos": {
+            "small": "img/logo.svg",
+            "large": "img/logo.svg"
+        },
+        "links": [
+            {
+                "name": "GitHub",
+                "url": "https://github.com/1DeliDolu/grafana-prtg-datasource.git"
+            }
+        ],
+        "screenshots": [],
+        "version": "1.0.0",
+        "updated": "2025-02-01"
+    },
+    "dependencies": {
+        "grafanaDependency": ">=10.4.0",
+        "plugins": []
+    },
+    "includes": [
+        {
+            "name": "overview",
+            "path": "dashboards/overview.json",
+            "type": "dashboard"
+        }
+    ],
+    "buildMode": "production"
+}
